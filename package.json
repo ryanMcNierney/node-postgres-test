@@ -1,0 +1,19 @@
+{
+  "name": "yahoo-test-v1",
+  "version": "1.0.0",
+  "description": "testing yahoo api",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "start-dev": "NODE_ENV='development' nodemon app.js"
+  },
+  "author": "ryan mcnierney",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1",
+    "pg": "^7.12.0"
+  }
+}
