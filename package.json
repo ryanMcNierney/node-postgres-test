@@ -2,11 +2,11 @@
   "name": "yahoo-test-v1",
   "version": "1.0.0",
   "description": "testing yahoo api",
-  "main": "app.js",
+  "main": "node server/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "start-dev": "NODE_ENV='development' nodemon app.js"
+    "start": "node server/index.js",
+    "start-dev": "NODE_ENV='development' nodemon server/index.js"
   },
   "author": "ryan mcnierney",
   "license": "ISC",

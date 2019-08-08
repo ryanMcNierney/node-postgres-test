@@ -7,9 +7,6 @@ const PORT = 3000
 // dotenv
 require('dotenv').config()
 
-// database
-const db = require('./db')
-
 // logging middleware
 app.use(morgan('dev'))
 
@@ -17,20 +14,14 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
+// routing
+app.use('/api', require('./api'))
+
 // static file-serving middleware
 app.use(express.static(path.join(__dirname, '..', 'public')))
 
 app.get('/', (req, res) => {
   res.send('<h1>Hello World</h1>')
-})
-
-app.get('/test', async (req, res) => {
-  try {
-    const { rows } = await db.query('SELECT * FROM token')
-    res.send(rows)
-  } catch (err) {
-    res.send(err)
-  }
 })
 
 app.listen(PORT, () => {
