@@ -5,7 +5,7 @@ module.exports = router
 
 router.get('/', async (req, res, next) => {
   try {
-    const { rows } = await db.query('SELECT * FROM token')
+    const { rows } = await db.query('SELECT * FROM tokens')
     res.send(rows)
   } catch (err) {
     res.send(err)
