@@ -1,6 +1,6 @@
 const pg = require('pg')
 
-const conString = process.env.CONNECTION_STRING
+const conString = process.env.DATABASE_URL
 
 const client = new pg.Client(conString)
 client.connect()
