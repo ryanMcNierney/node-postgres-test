@@ -16,6 +16,7 @@ app.use(express.urlencoded({ extended: true }))
 
 // routing
 app.use('/api', require('./api'))
+app.use('/auth', require('./auth'))
 
 // static file-serving middleware
 app.use(express.static(path.join(__dirname, '..', 'public')))
