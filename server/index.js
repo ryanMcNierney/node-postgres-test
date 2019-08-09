@@ -21,6 +21,10 @@ app.use('/auth', require('./auth'))
 // static file-serving middleware
 app.use(express.static(path.join(__dirname, '..', 'public')))
 
+app.get('/failed', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'public/failed.html'))
+})
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public/index.html'))
 })
