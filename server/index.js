@@ -25,6 +25,10 @@ app.get('/failed', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public/failed.html'))
 })
 
+app.get('/success', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'public/success.html'))
+})
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public/index.html'))
 })

@@ -12,15 +12,15 @@ passport.use(new OAuth2Strategy({
   clientSecret: process.env.YAHOO_CLIENT_SECRET,
   callbackURL: callbackURL + '/auth/yahoo/callback'
 }, async (accessToken, refreshToken, profile, cb) => {
-    try {
-      const text = 'INSERT INTO tokens(access_token, refresh_token) VALUES($1, $2)'
-      const values = [accessToken, refreshToken]
-      const { rows } = await db.query(text, values)
-      console.log('rows', rows)
-    } catch (err) {
-      console.log(err)
-    }
+  try {
+    const text = 'INSERT INTO tokens(access_token, refresh_token) VALUES($1, $2)'
+    const values = [accessToken, refreshToken]
+    const { rows } = await db.query(text, values)
+    console.log('rows', rows)
+  } catch (err) {
+    console.log(err)
   }
+}
 ))
 
 router.get('/', passport.authenticate('oauth2'))
@@ -29,6 +29,5 @@ router.get('/callback',
   passport.authenticate('oauth2', { failureRedirect: '../../failed' }),
   function (req, res) {
     // Successful authentication, redirect home.
-    console.log('AM I IN THE CALLBACK?')
-    res.redirect('../../');
+    res.redirect('../../sucess');
   })
