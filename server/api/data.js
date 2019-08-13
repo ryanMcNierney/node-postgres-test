@@ -24,7 +24,11 @@ const getData = () => {
 }
 
 router.get('/', async (req, res) => {
-  const data = await getData()
-  res.status(200).json(data)
+  try {
+    const data = await getData()
+    res.status(200).json(data)
+  } catch (err) {
+    res.json(err)
+  }
 })
 
